@@ -40,6 +40,9 @@ class TokenType(Enum):
     FLOAT_LIT = auto()
     STR_LIT = auto()
 
+    # Identifiers
+    IDENTIFIER = auto()
+
     # Keywords
     ...
 
