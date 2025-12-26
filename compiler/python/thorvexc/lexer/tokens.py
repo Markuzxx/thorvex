@@ -15,7 +15,6 @@ class TokenType(Enum):
     RIGHT_BRACE = auto()
     COMMA = auto()
     DOT = auto()
-    DOT_DOT = auto()
     SEMICOLON = auto()
     COLON = auto()
     NEWLINE = auto()
@@ -33,6 +32,8 @@ class TokenType(Enum):
     LESS_EQUAL = auto()
     GREATER = auto()
     GREATER_EQUAL = auto()
+    DOT_DOT = auto()
+    DOT_DOT_EQUAL = auto()
 
     # Literals
     INT_LIT = auto()
