@@ -70,6 +70,12 @@ SINGLE_CHAR_TOKENS: dict[str, TokenType] = {
 
 }
 
+KEYWORDS: dict[str, TokenType] = {
+
+    # Keywords go here
+
+}
+
 
 @dataclass()
 class Token:
