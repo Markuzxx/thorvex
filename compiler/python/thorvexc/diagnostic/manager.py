@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from diagnostic import DiagnosticSeverity, Diagnostic, ThorvexError, ThorvexWarning
+from .diagnostic import DiagnosticSeverity, Diagnostic, ThorvexError, ThorvexWarning
 
 
 class DiagnosticManager:
