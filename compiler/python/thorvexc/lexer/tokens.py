@@ -18,6 +18,7 @@ class TokenType(Enum):
     DOT_DOT = auto()
     SEMICOLON = auto()
     COLON = auto()
+    NEWLINE = auto()
 
     # Operators
     PLUS = auto()
