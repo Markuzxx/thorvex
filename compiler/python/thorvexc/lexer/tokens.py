@@ -52,28 +52,31 @@ class Token:
     type: TokenType
     lexeme: str
     line: int
-    column: int
+    start_column: int
+    end_column: int
     value: object | None = None
 
     @staticmethod
     def simple(type_: TokenType,
                lexeme: str,
                line: int,
-               column: int) -> Token:
+               start_column: int,
+               end_column: int) -> Token:
 
-        return Token(type_, lexeme, line, column)
+        return Token(type_, lexeme, line, start_column, end_column)
 
     @staticmethod
     def literal(type_: TokenType,
                 lexeme: str,
                 line: int,
-                column: int,
+                start_column: int,
+                end_column: int,
                 value: object) -> Token:
 
-        return Token(type_, lexeme, line, column, value)
+        return Token(type_, lexeme, line, start_column, end_column, value)
 
     @staticmethod
     def eof(line: int,
             column: int) -> Token:
 
-        return Token(TokenType.EOF, "\0", line, column)
+        return Token(TokenType.EOF, "\0", line, column, column)
