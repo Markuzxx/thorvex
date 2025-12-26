@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from enum import Enum, StrEnum, auto
+from enum import IntEnum, StrEnum
 from dataclasses import dataclass
 
 
-class DiagnosticSeverity(Enum):
+class DiagnosticSeverity(IntEnum):
 
-    ERROR = auto()
-    WARNING = auto()
+    ERROR = 20
+    WARNING = 10
 
 
 class DiagnosticCode(StrEnum):
