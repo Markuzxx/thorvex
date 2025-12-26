@@ -9,10 +9,10 @@ class TokenType(Enum):
     # Punctuation / Grouping
     LEFT_PAREN = auto()
     RIGHT_PAREN = auto()
-    LEFT_BRACE = auto()
-    RIGHT_BRACE = auto()
     LEFT_BRACKET = auto()
     RIGHT_BRACKET = auto()
+    LEFT_BRACE = auto()
+    RIGHT_BRACE = auto()
     COMMA = auto()
     DOT = auto()
     DOT_DOT = auto()
@@ -44,6 +44,30 @@ class TokenType(Enum):
 
     # Special
     EOF = auto()
+
+
+SINGLE_CHAR_TOKENS: dict[str, TokenType] = {
+
+    '(': TokenType.LEFT_PAREN,
+    ')': TokenType.RIGHT_PAREN,
+    '[': TokenType.LEFT_BRACKET,
+    ']': TokenType.RIGHT_BRACKET,
+    '{': TokenType.LEFT_BRACE,
+    '}': TokenType.RIGHT_BRACE,
+    ',': TokenType.COMMA,
+    '.': TokenType.DOT,
+    ';': TokenType.SEMICOLON,
+    ':': TokenType.COLON,
+    '+': TokenType.PLUS,
+    '-': TokenType.MINUS,
+    '*': TokenType.STAR,
+    '/': TokenType.SLASH,
+    '%': TokenType.PERCENT,
+    '=': TokenType.ASSIGN,
+    '<': TokenType.LESS,
+    '>': TokenType.GREATER
+
+}
 
 
 @dataclass()
