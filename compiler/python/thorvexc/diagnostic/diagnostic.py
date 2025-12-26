@@ -59,7 +59,7 @@ class Diagnostic:
                 f"{gutter_color}  --> {self.source}:{self.line}:{self.column_start}\n"
                 f"{empty_gutter}\n"
                 f"{line_gutter}{reset}{snippet_prefix}{color}{snippet_highlight}{reset}{snippet_suffix}\n"
-                f"{gutter_color}{empty_gutter}{caret_padding}{color}{caret}")
+                f"{gutter_color}{empty_gutter}{caret_padding}{color}{caret}{reset}\n")
 
 
 class ThorvexError(Diagnostic):
