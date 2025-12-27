@@ -69,17 +69,3 @@ class Diagnostic:
                 f"{empty_gutter}\n"
                 f"{line_gutter}{reset}{snippet_prefix}{color}{snippet_highlight}{reset}{snippet_suffix}\n"
                 f"{gutter_color}{empty_gutter}{caret_padding}{color}{caret}{reset}\n")
-
-
-class ThorvexWarning(Diagnostic):
-
-    def __init__(self,
-                 code: DiagnosticCode,
-                 message: str,
-                 snippet: str,
-                 source: str,
-                 line: int,
-                 column_start: int,
-                 column_end: int) -> None:
-
-        super().__init__(DiagnosticSeverity.ERROR, code, message, snippet, source, line, column_start, column_end)
