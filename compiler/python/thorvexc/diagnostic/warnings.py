@@ -11,7 +11,7 @@ class ThorvexWarning(Diagnostic):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__(DiagnosticSeverity.ERROR, code, message, snippet, source, line, column_start, column_end)
+        super().__init__(DiagnosticSeverity.ERROR, code, message, snippet, source, line, start_column, end_column)

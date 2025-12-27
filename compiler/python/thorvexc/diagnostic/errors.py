@@ -11,10 +11,10 @@ class ThorvexError(Diagnostic):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__(DiagnosticSeverity.ERROR, code, message, snippet, source, line, column_start, column_end)
+        super().__init__(DiagnosticSeverity.ERROR, code, message, snippet, source, line, start_column, end_column)
 
 
 ########################################################################################################################
@@ -27,11 +27,11 @@ class LexerError(ThorvexError):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int,
+                 start_column: int,
+                 end_column: int,
                  code: DiagnosticCode = DiagnosticCode.E1000) -> None:
 
-        super().__init__(code, message, snippet, source, line, column_start, column_end)
+        super().__init__(code, message, snippet, source, line, start_column, end_column)
 
 
 class UnexpectedCharacterError(LexerError):
@@ -41,10 +41,10 @@ class UnexpectedCharacterError(LexerError):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__(f"Unexpected character: '{character}'.", snippet, source, line, column_start, column_end,
+        super().__init__(f"Unexpected character: '{character}'.", snippet, source, line, start_column, end_column,
                          code=DiagnosticCode.E1001)
 
 
@@ -66,10 +66,10 @@ class UnterminatedStringLiteralError(LexerError):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__("Unterminated string literal.", snippet, source, line, column_start, column_end,
+        super().__init__("Unterminated string literal.", snippet, source, line, start_column, end_column,
                          code=DiagnosticCode.E1003)
 
 
@@ -80,8 +80,8 @@ class InvalidEscapeSequenceError(LexerError):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__(f"Invalid escape sequence: '{escape_sequence}'.", snippet, source, line, column_start,
-                         column_end, code=DiagnosticCode.E1004)
+        super().__init__(f"Invalid escape sequence: '{escape_sequence}'.", snippet, source, line, start_column,
+                         end_column, code=DiagnosticCode.E1004)

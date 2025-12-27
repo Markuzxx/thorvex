@@ -37,8 +37,8 @@ class Diagnostic:
     snippet: str
     source: str
     line: int
-    column_start: int
-    column_end: int
+    start_column: int
+    end_column: int
 
     def __str__(self) -> str:
 
@@ -56,16 +56,16 @@ class Diagnostic:
         empty_gutter = ' ' * len(line_gutter[:-2]) + "| "
 
         # Split snippet
-        snippet_prefix = self.snippet[:(self.column_start - 1)]
-        snippet_highlight = self.snippet[(self.column_start - 1):self.column_end]
-        snippet_suffix = self.snippet[self.column_end:]
+        snippet_prefix = self.snippet[:(self.start_column - 1)]
+        snippet_highlight = self.snippet[(self.start_column - 1):self.end_column]
+        snippet_suffix = self.snippet[self.end_column:]
 
         # Caret
-        caret_padding = ' ' * (self.column_start - 1)
-        caret = '^' * (self.column_end - self.column_start + 1)
+        caret_padding = ' ' * (self.start_column - 1)
+        caret = '^' * (self.end_column - self.start_column + 1)
 
         return (f"{color}{self.severity.name.lower()}[{self.code}]: {self.message}\n"
-                f"{gutter_color}  --> {self.source}:{self.line}:{self.column_start}\n"
+                f"{gutter_color}  --> {self.source}:{self.line}:{self.start_column}\n"
                 f"{empty_gutter}\n"
                 f"{line_gutter}{reset}{snippet_prefix}{color}{snippet_highlight}{reset}{snippet_suffix}\n"
                 f"{gutter_color}{empty_gutter}{caret_padding}{color}{caret}{reset}\n")
