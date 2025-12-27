@@ -36,9 +36,9 @@ class TokenType(Enum):
     DOT_DOT_EQUAL = auto()
 
     # Literals
-    INT_LIT = auto()
-    FLOAT_LIT = auto()
-    STR_LIT = auto()
+    INTEGER_LITERAL = auto()
+    FLOAT_LITERAL = auto()
+    STRING_LITERAL = auto()
 
     # Identifiers
     IDENTIFIER = auto()
