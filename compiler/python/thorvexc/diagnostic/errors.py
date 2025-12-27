@@ -54,10 +54,9 @@ class UnterminatedCharacterLiteralError(LexerError):
                  snippet: str,
                  source: str,
                  line: int,
-                 column_start: int,
-                 column_end: int) -> None:
+                 column: int) -> None:
 
-        super().__init__("Unterminated character literal", snippet, source, line, column_start, column_end,
+        super().__init__("Unterminated character literal", snippet, source, line, column, column,
                          code=DiagnosticCode.E1002)
 
 
