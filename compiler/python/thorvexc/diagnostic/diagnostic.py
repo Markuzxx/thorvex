@@ -12,7 +12,16 @@ class DiagnosticSeverity(IntEnum):
 
 class DiagnosticCode(StrEnum):
 
-    # Errors
+    # Internal errors (0XXX)
+    E0000 = "E0000"
+    ...
+
+    # Lexer errors (1XXX)
+    E1000 = "E1000"
+    E1001 = "E1001"
+    E1002 = "E1002"
+    E1003 = "E1003"
+    E1004 = "E1004"
     ...
 
     # Warnings
