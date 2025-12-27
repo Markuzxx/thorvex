@@ -37,50 +37,52 @@ class LexerError(ThorvexError):
 class UnexpectedCharacterError(LexerError):
 
     def __init__(self,
-                 message: str,
+                 character: str,
                  snippet: str,
                  source: str,
                  line: int,
                  column_start: int,
                  column_end: int) -> None:
 
-        super().__init__(message, snippet, source, line, column_start, column_end, code=DiagnosticCode.E1001)
-
-
-class UnterminatedStringLiteralError(LexerError):
-
-    def __init__(self,
-                 message: str,
-                 snippet: str,
-                 source: str,
-                 line: int,
-                 column_start: int,
-                 column_end: int) -> None:
-
-        super().__init__(message, snippet, source, line, column_start, column_end, code=DiagnosticCode.E1002)
+        super().__init__(f"Unexpected character: '{character}'.", snippet, source, line, column_start, column_end,
+                         code=DiagnosticCode.E1001)
 
 
 class UnterminatedCharacterLiteralError(LexerError):
 
     def __init__(self,
-                 message: str,
                  snippet: str,
                  source: str,
                  line: int,
                  column_start: int,
                  column_end: int) -> None:
 
-        super().__init__(message, snippet, source, line, column_start, column_end, code=DiagnosticCode.E1003)
+        super().__init__("Unterminated character literal", snippet, source, line, column_start, column_end,
+                         code=DiagnosticCode.E1002)
+
+
+class UnterminatedStringLiteralError(LexerError):
+
+    def __init__(self,
+                 snippet: str,
+                 source: str,
+                 line: int,
+                 column_start: int,
+                 column_end: int) -> None:
+
+        super().__init__("Unterminated string literal.", snippet, source, line, column_start, column_end,
+                         code=DiagnosticCode.E1003)
 
 
 class InvalidEscapeSequenceError(LexerError):
 
     def __init__(self,
-                 message: str,
+                 escape_sequence: str,
                  snippet: str,
                  source: str,
                  line: int,
                  column_start: int,
                  column_end: int) -> None:
 
-        super().__init__(message, snippet, source, line, column_start, column_end, code=DiagnosticCode.E1004)
+        super().__init__(f"Invalid escape sequence: '{escape_sequence}'.", snippet, source, line, column_start,
+                         column_end, code=DiagnosticCode.E1004)
