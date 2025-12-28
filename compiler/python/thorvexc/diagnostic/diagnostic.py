@@ -34,11 +34,16 @@ class Diagnostic:
     severity: DiagnosticSeverity
     code: DiagnosticCode
     message: str
-    snippet: str
     source: str
     line: int
     start_column: int
     end_column: int
+    snippet: str | None = None
+
+    def add_snippet(self,
+                    snippet: str):
+
+        self.snippet = snippet
 
     def __str__(self) -> str:
 

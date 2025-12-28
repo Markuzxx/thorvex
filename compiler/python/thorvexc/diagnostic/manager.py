@@ -6,14 +6,17 @@ from .diagnostic import DiagnosticSeverity, Diagnostic, ThorvexError, ThorvexWar
 class DiagnosticManager:
 
     def __init__(self,
+                 source_code: str,
                  severity: DiagnosticSeverity = DiagnosticSeverity.ERROR) -> None:
+
+        self.source_code = source_code
+        self.severity = severity
 
         self.errors: list[ThorvexError] = []
         self.warnings: list[ThorvexWarning] = []
-        self.severity = severity
 
-    def add(self,
-            diagnostic: Diagnostic) -> None:
+    def report(self,
+               diagnostic: Diagnostic) -> None:
 
         if isinstance(diagnostic, ThorvexError): self.errors.append(diagnostic)
         elif isinstance(diagnostic, ThorvexWarning): self.warnings.append(diagnostic)
