@@ -38,10 +38,9 @@ class UnexpectedCharacterError(LexerError):
                  character: str,
                  source: str,
                  line: int,
-                 start_column: int,
-                 end_column: int) -> None:
+                 column: int) -> None:
 
-        super().__init__(f"Unexpected character: '{character}'.", source, line, start_column, end_column,
+        super().__init__(f"Unexpected character: '{character}'.", source, line, column, column,
                          code=DiagnosticCode.E1001)
 
 
@@ -50,9 +49,11 @@ class UnterminatedCharacterLiteralError(LexerError):
     def __init__(self,
                  source: str,
                  line: int,
-                 column: int) -> None:
+                 start_column: int,
+                 end_column: int) -> None:
 
-        super().__init__("Unterminated character literal", source, line, column, column, code=DiagnosticCode.E1002)
+        super().__init__("Unterminated character literal", source, line, start_column, end_column,
+                         code=DiagnosticCode.E1002)
 
 
 class UnterminatedStringLiteralError(LexerError):
